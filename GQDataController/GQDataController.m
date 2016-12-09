@@ -411,6 +411,15 @@ NSString * const GQResponseObjectKey = @"GQResponseObjectKey";
                                                         success:successBlock
                                                         failure:failureBlock];
         
+    } else if ([method isEqualToString:@"POST-FD"]) {
+        
+        self.URLSessionDataTask = [self.httpSessionManager POST:urlString
+                                                     parameters:params
+                                      constructingBodyWithBlock:nil
+                                                       progress:nil
+                                                        success:successBlock
+                                                        failure:failureBlock];
+        
     } else if ([method isEqualToString:@"PUT"]) {
         
         self.URLSessionDataTask = [self.httpSessionManager PUT:urlString

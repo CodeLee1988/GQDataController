@@ -153,6 +153,14 @@ NSString * const GQSQLiteURLQueryKey = @"gqsql";
     return [NSString stringWithFormat:@"%@://%@?%@=%@", GQSQLiteURLProtocolKey, databaseFilePath, GQSQLiteURLQueryKey, encodingSql];
 }
 
++ (instancetype)sqliteURLWithDatabaseFile:(NSString *)databaseFile sql:(NSString *)sql
+{
+    NSString *encodingSql = [sql stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    return [NSString stringWithFormat:@"%@://%@?%@=%@", GQSQLiteURLProtocolKey, databaseFile, GQSQLiteURLQueryKey, encodingSql];
+}
+
+
 - (NSString *)stringByBindSQLiteWithParams:(NSDictionary *)params
 {
     if ([self hasPrefix:GQSQLiteURLProtocolKey]) {

@@ -19,6 +19,8 @@ extern NSString * const GQSQLiteURLProtocolKey;
 
 + (instancetype)sqliteURLStringWithDatabaseName:(NSString *)databaseName sql:(NSString *)sql;
 
++ (instancetype)sqliteURLWithDatabaseFile:(NSString *)databaseFile sql:(NSString *)sql;
+
 - (NSString *)stringByBindSQLiteWithParams:(NSDictionary *)params;
 
 @end
